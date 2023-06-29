@@ -1,4 +1,4 @@
-namespace CMS_Api
+namespace CMS
 {
     public class WeatherForecast
     {
