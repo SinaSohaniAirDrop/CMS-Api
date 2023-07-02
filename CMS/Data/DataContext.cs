@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
+﻿using CMS.Models;
+using Microsoft.EntityFrameworkCore.Metadata;
 using System.Collections.Generic;
 using System.Reflection.Emit;
 using System.Reflection.Metadata;
@@ -12,6 +13,10 @@ namespace CMS.Data
         }
 
         public DbSet<User> users { get; set; }
+        public DbSet<ComCost> comCosts { get; set; }
+        public DbSet<Insurance> insurances { get; set; }
+        public DbSet<Packaging> packagings { get; set; }
+        public DbSet<VolDist> volDists { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

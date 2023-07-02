@@ -2,6 +2,10 @@
 global using CMS.Data;
 global using Microsoft.EntityFrameworkCore;
 global using CMS.Data;
+global using System.ComponentModel;
+global using System.ComponentModel.DataAnnotations;
+global using System.ComponentModel.DataAnnotations.Schema;
+using CMS.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 var connectionString = builder.Configuration.GetConnectionString("Default")
@@ -12,6 +16,11 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<IUserService, UserService>(); 
+builder.Services.AddScoped<IComCostService, ComCostService>(); 
+builder.Services.AddScoped<IInsuranceService, InsuranceService>(); 
+builder.Services.AddScoped<IPackagingService, PackagingService>(); 
+builder.Services.AddScoped<IVolDistService, VolDistService>(); 
 builder.Services.AddDbContextFactory<DataContext>((
     DbContextOptionsBuilder options) =>
     options.UseSqlServer(connectionString));

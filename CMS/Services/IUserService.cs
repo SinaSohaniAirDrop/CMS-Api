@@ -1,6 +1,4 @@
-﻿using CMS.Models;
-
-namespace CMS.Services
+﻿namespace CMS.Services
 {
     public interface IUserService
     {
