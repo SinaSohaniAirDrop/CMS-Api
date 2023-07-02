@@ -3,6 +3,7 @@ using CMS.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CMS.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20230702153505_AddedAllModels")]
+    partial class AddedAllModels
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -47,7 +50,7 @@ namespace CMS.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("ComCost", (string)null);
+                    b.ToTable("comCosts");
                 });
 
             modelBuilder.Entity("CMS.Models.Insurance", b =>
@@ -69,13 +72,7 @@ namespace CMS.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MaxVal")
-                        .IsUnique();
-
-                    b.HasIndex("MinVal")
-                        .IsUnique();
-
-                    b.ToTable("Insurance", (string)null);
+                    b.ToTable("insurances");
                 });
 
             modelBuilder.Entity("CMS.Models.Packaging", b =>
@@ -101,13 +98,7 @@ namespace CMS.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MaxL")
-                        .IsUnique();
-
-                    b.HasIndex("MinL")
-                        .IsUnique();
-
-                    b.ToTable("Packaging", (string)null);
+                    b.ToTable("packagings");
                 });
 
             modelBuilder.Entity("CMS.Models.User", b =>
@@ -177,13 +168,7 @@ namespace CMS.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("MaxVol")
-                        .IsUnique();
-
-                    b.HasIndex("MinVol")
-                        .IsUnique();
-
-                    b.ToTable("VolDist", (string)null);
+                    b.ToTable("volDists");
                 });
 #pragma warning restore 612, 618
         }

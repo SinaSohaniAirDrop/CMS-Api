@@ -17,6 +17,7 @@ namespace CMS.Data
         public DbSet<Insurance> insurances { get; set; }
         public DbSet<Packaging> packagings { get; set; }
         public DbSet<VolDist> volDists { get; set; }
+        public DbSet<Province> provinces { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -28,6 +29,10 @@ namespace CMS.Data
         private void MapTables(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>().ToTable("User");
+            modelBuilder.Entity<ComCost>().ToTable("ComCost");
+            modelBuilder.Entity<Insurance>().ToTable("Insurance");
+            modelBuilder.Entity<Packaging>().ToTable("Packaging");
+            modelBuilder.Entity<VolDist>().ToTable("VolDist");
         }
         private void SetDescriptionsAndDefaultValues(ModelBuilder modelBuilder)
         {
@@ -49,6 +54,25 @@ namespace CMS.Data
             modelBuilder.Entity<User>()
                  .Property(x => x.Address)
                  .HasComment("آدرس");
+            modelBuilder.Entity<Packaging>()
+                 .HasIndex(x => x.MinL)
+                 .IsUnique();
+            modelBuilder.Entity<Packaging>()
+                 .HasIndex(x => x.MaxL)
+                 .IsUnique();
+            modelBuilder.Entity<VolDist>()
+                 .HasIndex(x => x.MaxVol)
+                 .IsUnique();
+            modelBuilder.Entity<VolDist>()
+                 .HasIndex(x => x.MinVol)
+                 .IsUnique();
+            modelBuilder.Entity<Insurance>()
+                 .HasIndex(x => x.MaxVal)
+                 .IsUnique();
+            modelBuilder.Entity<Insurance>()
+                 .HasIndex(x => x.MinVal)
+                 .IsUnique();
+
             //modelBuilder.Entity<WorkType>()
             //    .Property(x => x.IsActive)
             //    .HasComment("فعال")

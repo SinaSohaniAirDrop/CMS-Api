@@ -21,6 +21,7 @@ builder.Services.AddScoped<IComCostService, ComCostService>();
 builder.Services.AddScoped<IInsuranceService, InsuranceService>(); 
 builder.Services.AddScoped<IPackagingService, PackagingService>(); 
 builder.Services.AddScoped<IVolDistService, VolDistService>(); 
+builder.Services.AddScoped<IProvinceService, ProvinceService>(); 
 builder.Services.AddDbContextFactory<DataContext>((
     DbContextOptionsBuilder options) =>
     options.UseSqlServer(connectionString));
