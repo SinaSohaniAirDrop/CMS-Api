@@ -6,54 +6,54 @@ namespace CMS.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class VolDistController : ControllerBase
+    public class WeightDistController : ControllerBase
     {
-        private readonly IVolDistService _volDistService;
+        private readonly IWeightDistService _weightDistService;
 
-        public VolDistController(IVolDistService volDistService)
+        public WeightDistController(IWeightDistService weightDistService)
         {
-            _volDistService = volDistService;
+            _weightDistService = weightDistService;
         }
 
         [HttpGet]
-        public async Task<ActionResult<List<VolDist>>> GetAllVolDists()
+        public async Task<ActionResult<List<WeightDist>>> GetAllWeightDists()
         {
-            return await _volDistService.GetAllVolDists();
+            return await _weightDistService.GetAllWeightDists();
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<VolDist>> GetSingleVolDist(int id)
+        public async Task<ActionResult<WeightDist>> GetSingleWeightDist(int id)
         {
-            var result = await _volDistService.GetSingleVolDist(id);
+            var result = await _weightDistService.GetSingleWeightDist(id);
             if (result is null)
-                return NotFound("VolDist not found.");
+                return NotFound("WeightDist not found.");
 
             return Ok(result);
         }
 
         [HttpPost]
-        public async Task<ActionResult<List<VolDist>>> AddVolDist(VolDist volDist)
+        public async Task<ActionResult<List<WeightDist>>> AddWeightDist(WeightDist weightDist)
         {
-            var result = await _volDistService.AddVolDist(volDist);
+            var result = await _weightDistService.AddWeightDist(weightDist);
             return Ok(result);
         }
 
         [HttpPut("{id}")]
-        public async Task<ActionResult<List<VolDist>>> UpdateVolDist(int id, VolDist request)
+        public async Task<ActionResult<List<WeightDist>>> UpdateWeightDist(int id, WeightDist request)
         {
-            var result = await _volDistService.UpdateVolDist(id, request);
+            var result = await _weightDistService.UpdateWeightDist(id, request);
             if (result is null)
-                return NotFound("VolDist not found.");
+                return NotFound("WeightDist not found.");
 
             return Ok(result);
         }
 
         [HttpDelete("{id}")]
-        public async Task<ActionResult<List<VolDist>>> DeleteVolDist(int id)
+        public async Task<ActionResult<List<WeightDist>>> DeleteWeightDist(int id)
         {
-            var result = await _volDistService.DeleteVolDist(id);
+            var result = await _weightDistService.DeleteWeightDist(id);
             if (result is null)
-                return NotFound("VolDist not found.");
+                return NotFound("WeightDist not found.");
 
             return Ok(result);
         }

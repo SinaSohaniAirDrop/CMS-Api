@@ -16,7 +16,7 @@ namespace CMS.Data
         public DbSet<ComCost> comCosts { get; set; }
         public DbSet<Insurance> insurances { get; set; }
         public DbSet<Packaging> packagings { get; set; }
-        public DbSet<VolDist> volDists { get; set; }
+        public DbSet<WeightDist> weightDists { get; set; }
         public DbSet<Province> provinces { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -32,7 +32,7 @@ namespace CMS.Data
             modelBuilder.Entity<ComCost>().ToTable("ComCost");
             modelBuilder.Entity<Insurance>().ToTable("Insurance");
             modelBuilder.Entity<Packaging>().ToTable("Packaging");
-            modelBuilder.Entity<VolDist>().ToTable("VolDist");
+            modelBuilder.Entity<WeightDist>().ToTable("WeightDist");
         }
         private void SetDescriptionsAndDefaultValues(ModelBuilder modelBuilder)
         {
@@ -60,11 +60,11 @@ namespace CMS.Data
             modelBuilder.Entity<Packaging>()
                  .HasIndex(x => x.MaxL)
                  .IsUnique();
-            modelBuilder.Entity<VolDist>()
-                 .HasIndex(x => x.MaxVol)
+            modelBuilder.Entity<WeightDist>()
+                 .HasIndex(x => x.MaxWeight)
                  .IsUnique();
-            modelBuilder.Entity<VolDist>()
-                 .HasIndex(x => x.MinVol)
+            modelBuilder.Entity<WeightDist>()
+                 .HasIndex(x => x.MinWeight)
                  .IsUnique();
             modelBuilder.Entity<Insurance>()
                  .HasIndex(x => x.MaxVal)

@@ -13,7 +13,7 @@
         public double tax { get; set; } = 0;
         [Required]
         [DisplayName("هزینه مقر")]
-        public string HQCost { get; set; } = string.Empty;
+        public double HQCost { get; set; } = 0;
         [Required]
         [DisplayName("هزینه درون شهری")]
         public double InsiderFee { get; set; } = 0;
